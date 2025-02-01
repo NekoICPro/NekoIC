@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+	<title>绫羽流光</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/main.css">
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<section id="main">
+			<header>
+				<span class="avatar"><img width="122px" src="https://cdn.lolix.cn/image/avatar.jpg" alt=""></span>
+				<h1>绫羽流光</h1>
+				<p>在逐渐沉没的世界里，幸而遇到了你</p>
+			</header>
+			<footer>
+				<ul class="icons">
+					<li><a href="https://sakurasky.cn" class="icon solid fa-home">博客</a></li>
+				</ul>
+			</footer>
+		</section>
+		<div style="max-width:70%;margin-top:15px;">
+			<span class="hitokoto-content" style="color: white;cursor: default;"></span>
+			<span class="hitokoto-author" style="cursor: default;float: right; color: white"></span>
+		</div>
+		<footer id="footer">
+			<ul class="copyright">
+				<li>Copyright © 2019-2025 绫羽流光</li>
+				<li><a href="https://beian.miit.gov.cn/" target="_blank">辽ICP备2025048023号-1</a></li>
+			</ul>
+		</footer>
+	</div>
+	<script>
+		if ('addEventListener' in window) {
+			window.addEventListener('load', function () { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+			document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+		}
+
+		(async () => {
+			let api = await (await fetch("https://v1.hitokoto.cn/?c=a&encode=json")).json();
+			document.querySelector(".hitokoto-content").textContent = "「 " + api.hitokoto + " 」";
+			document.querySelector(".hitokoto-author").textContent = "— " + api.from;
+		})();
+	</script>
+</body></html>
